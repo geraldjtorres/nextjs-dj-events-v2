@@ -5,29 +5,14 @@ import { API_URL } from '@/config/index'
 import styles from '@/styles/Event.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import moment from 'moment'
-import { FaPencilAlt, FaTimes } from 'react-icons/fa'
-import router from 'next/router'
+
 import EventMap from '@/components/EventMap'
 
 export default function EventPage({ evt }) {
-  const router = useRouter()
-
   return (
     <Layout>
       <div className={styles.event}>
-        {/* <div className={styles.controls}>
-          <Link href={`/events/edit/${evt.id}`}>
-            <a>
-              <FaPencilAlt /> Edit Event
-            </a>
-          </Link>
-          <a href='#' className={styles.delete} onClick={deleteEvent}>
-            <FaTimes /> Delete Event
-          </a>
-        </div> */}
-
         <span>
           {moment(evt.date).format('DD/MM/YYYY')} at {evt.time}
         </span>
@@ -39,6 +24,7 @@ export default function EventPage({ evt }) {
               src={evt.image.formats.medium.url}
               width={960}
               height={600}
+              alt=''
             />
           </div>
         )}
